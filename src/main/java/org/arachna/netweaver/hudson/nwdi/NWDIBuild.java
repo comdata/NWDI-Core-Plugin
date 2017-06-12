@@ -116,6 +116,9 @@ public final class NWDIBuild extends AbstractBuild<NWDIProject, NWDIBuild> {
             catch (final IOException e) {
                 throw new IllegalStateException(e);
             }
+            catch (final InterruptedException e) {
+            	throw new IllegalStateException(e);
+            }
         }
 
         return developmentConfiguration;
