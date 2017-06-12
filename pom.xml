@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.arachna.netweaver</groupId>
@@ -10,7 +9,7 @@
 	<groupId>org.arachna.netweaver</groupId>
 	<artifactId>NWDI-Core-Plugin</artifactId>
 	<name>NWDI-Core-Plugin</name>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<packaging>hpi</packaging>
 	<description>
 Jenkins plugin for interfacing with a NetWeaver Development Infrastructure.
@@ -49,7 +48,8 @@ getting those changes and building them using the SAP provided 'dctool'.
 		<connection>scm:git:git://github.com/comdata/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:comdata/${project.artifactId}.git</developerConnection>
 		<url>https://github.com/comdata/${project.artifactId}</url>
-	</scm>
+	  <tag>NWDI-Core-Plugin-1.1</tag>
+  </scm>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -255,7 +255,7 @@ getting those changes and building them using the SAP provided 'dctool'.
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore />
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
