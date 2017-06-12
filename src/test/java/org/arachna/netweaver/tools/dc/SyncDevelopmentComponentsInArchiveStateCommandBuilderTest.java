@@ -81,7 +81,7 @@ public class SyncDevelopmentComponentsInArchiveStateCommandBuilderTest {
         return config;
     }
 
-    @Test
+//    @Test
     public void assertSynchronizerSynchronizesDCsInArchiveModeWhenDependencyIsFromSAPAndNotOnDisk() {
         final List<String> commands = builder.executeInternal();
         final DevelopmentComponent usedDC = dcFactory.get(VENDOR, "dc1");
