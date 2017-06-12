@@ -182,6 +182,7 @@ getting those changes and building them using the SAP provided 'dctool'.
 					</dependencies>
 					<configuration>
 						<xmlOutput>true</xmlOutput>
+						<failOnError>false</failOnError>
 						<findbugsXmlOutput>true</findbugsXmlOutput>
 						<threshold>Low</threshold>
 						<effort>Max</effort>
