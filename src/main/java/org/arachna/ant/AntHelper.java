@@ -223,4 +223,25 @@ public class AntHelper {
 
         return sources;
     }
+    
+    /**
+     * create resource folder collection with full path
+     * 
+     * @param component
+     * @return
+     */
+    public Collection<String> createResourceFileSets(final DevelopmentComponent component) {
+        final Collection<String> sources = new HashSet<String>();
+
+        for (final String resourceFolder : component.getResourceFolders()) {
+        	
+        	File srcFolder = new File(resourceFolder);
+        	
+        	if (srcFolder!=null && srcFolder.exists()) {
+        		sources.add(srcFolder.getAbsolutePath());
+        	}
+        }
+
+        return sources;
+    }
 }
