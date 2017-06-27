@@ -22,6 +22,6 @@ public final class DCWithJavaSourceAcceptingFilter implements IDevelopmentCompon
      *         <code>false</code> otherwise.
      */
     public boolean accept(final DevelopmentComponent component) {
-        return component != null && component.getType().canContainJavaSources();
+        return component != null && true; //component.getType().canContainJavaSources();
     }
 }
