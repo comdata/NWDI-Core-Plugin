@@ -83,6 +83,17 @@ public class AntHelper {
 			
 			component.setSourceFolders(componentSourceFolders);
 		}
+		
+		if (component.getType().equals(DevelopmentComponentType.J2EEWebModule)) {
+			if (!componentSourceFolders.contains("source")) {
+				componentSourceFolders.add("source");
+			}
+			if (!componentSourceFolders.contains("src")) {
+				componentSourceFolders.add("src");
+			}
+			
+			component.setSourceFolders(componentSourceFolders);
+		}
 
 		for (final String sourceFolder : componentSourceFolders) {
 			final File folder = new File(sourceFolder);
