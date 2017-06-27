@@ -9,7 +9,7 @@
 	<groupId>org.arachna.netweaver</groupId>
 	<artifactId>NWDI-Core-Plugin</artifactId>
 	<name>NWDI-Core-Plugin</name>
-	<version>1.4</version>
+	<version>1.5-SNAPSHOT</version>
 	<packaging>hpi</packaging>
 	<description>
 Jenkins plugin for interfacing with a NetWeaver Development Infrastructure.
@@ -48,7 +48,7 @@ getting those changes and building them using the SAP provided 'dctool'.
 		<connection>scm:git:git://github.com/comdata/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:comdata/${project.artifactId}.git</developerConnection>
 		<url>https://github.com/comdata/${project.artifactId}</url>
-	  <tag>NWDI-Core-Plugin-1.4</tag>
+	  <tag>HEAD</tag>
   </scm>
 	<dependencies>
 		<dependency>
