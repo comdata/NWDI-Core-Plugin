@@ -100,6 +100,9 @@ public class AntHelper {
 
 			if (folder.exists() && filter.accept(folder.getAbsolutePath())) {
 				sourceFolders.add(folder);
+				System.out.println("Adding folder: "+sourceFolder);
+			} else {
+				System.out.println(" folder not found: "+sourceFolder+ " - "+folder.getAbsolutePath());
 			}
 		}
 
