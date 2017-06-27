@@ -73,6 +73,10 @@ public class AntHelper {
 		Collection<File> sourceFolders = new ArrayList<File>();
 		Set<String> componentSourceFolders = component.getSourceFolders();
 
+		for (String folder : componentSourceFolders) {
+			System.out.println("check folder: "+folder);
+		}
+		
 		if (component.getType().equals(DevelopmentComponentType.J2EE)) {
 			if (!componentSourceFolders.contains("source")) {
 				componentSourceFolders.add("source");

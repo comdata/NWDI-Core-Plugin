@@ -219,6 +219,7 @@ public final class NWDIBuild extends AbstractBuild<NWDIProject, NWDIBuild> {
 
         if (filter != null) {
             for (final DevelopmentComponent component : this.getAffectedDevelopmentComponents((PrintStream)null)) {
+            	System.out.println("Checking component: "+component.getName());
                 if (filter.accept(component)) {
                     filteredDCs.add(component);
                 }
