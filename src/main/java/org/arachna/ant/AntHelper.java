@@ -165,7 +165,7 @@ public class AntHelper {
 		}
 
 		if (DevelopmentComponentType.ExternalLibrary.equals(component.getType())
-				&& component.getCompartment().isSourceState()) {
+				&& component.getCompartment()!=null && component.getCompartment().isSourceState()) {
 			return String.format("%s/libraries", this.getBaseLocation(component));
 		}
 
