@@ -76,6 +76,9 @@ public class AntHelper {
 		for (String folder : componentSourceFolders) {
 			System.out.println("check folder: "+folder);
 		}
+		
+		System.out.println("component: "+component.getName()+" type: "+component.getType());
+		
 		if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
 			System.out.println("ejbModule");
 			componentSourceFolders.add("ejbModule");
@@ -287,8 +290,9 @@ public class AntHelper {
 	public Collection<String> createSourceFileSets(final DevelopmentComponent component,
 			final SourceDirectoryFilter filter) {
 		final Collection<String> sources = new HashSet<String>();
-
+		System.out.println("source folders for: "+component.getName());
 		for (final File srcFolder : getExistingSourceFolders(component, filter)) {
+			System.out.println("adding source folder:"+srcFolder.getName());
 			sources.add(srcFolder.getAbsolutePath());
 		}
 
