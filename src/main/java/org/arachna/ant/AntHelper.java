@@ -78,40 +78,48 @@ public class AntHelper {
 		for (String folder : componentSourceFolders) {
 			System.out.println("check folder: "+folder);
 		}
-			if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
-				System.out.println("ejbModule");
-				componentSourceFolders.add("ejbModule");
-			}
-			
-			if (component.getType().equals(DevelopmentComponentType.J2EE)) {
-				if (EJB_MODULE.equals(component.getType().getSubType()) && !componentSourceFolders.contains("ejbModule")) {
-					System.out.println("ejbModule");
-
-					componentSourceFolders.add("ejbModule");
-				}
-				if (!componentSourceFolders.contains("source")) {
-					System.out.println("source");
-					componentSourceFolders.add("source");
-				}
-				if (!componentSourceFolders.contains("src")) {
-					System.out.println("src");
-					componentSourceFolders.add("src");
-				}
-			}
-			
-			if (component.getType().equals(DevelopmentComponentType.J2EEWebModule)) {
-				if (!componentSourceFolders.contains("source")) {
-					System.out.println("source");
-					componentSourceFolders.add("source");
-				}
-				if (!componentSourceFolders.contains("src")) {
-					System.out.println("src");
-					componentSourceFolders.add("src");
-				}
-			}
-
+		if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
+			System.out.println("ejbModule");
+			componentSourceFolders.add("ejbModule");
+			component.setSourceFolders(componentSourceFolders);		
+		}
 		
-		component.setSourceFolders(componentSourceFolders);		
+		if (component.getType().equals(DevelopmentComponentType.J2EE)) {
+			if (!componentSourceFolders.contains("source")) {
+				System.out.println("source");
+				componentSourceFolders.add("source");
+			}
+			if (!componentSourceFolders.contains("src")) {
+				System.out.println("src");
+				componentSourceFolders.add("src");
+			}
+			component.setSourceFolders(componentSourceFolders);		
+		}
+		
+		if (component.getType().equals(DevelopmentComponentType.J2EEWebModule)) {
+			if (!componentSourceFolders.contains("source")) {
+				System.out.println("source");
+				componentSourceFolders.add("source");
+			}
+			if (!componentSourceFolders.contains("src")) {
+				System.out.println("src");
+				componentSourceFolders.add("src");
+			}
+			component.setSourceFolders(componentSourceFolders);		
+		}
+
+		if (component.getType().equals(DevelopmentComponentType.Java)) {
+			if (!componentSourceFolders.contains("source")) {
+				System.out.println("source");
+				componentSourceFolders.add("source");
+			}
+			if (!componentSourceFolders.contains("src")) {
+				System.out.println("src");
+				componentSourceFolders.add("src");
+			}
+			component.setSourceFolders(componentSourceFolders);		
+		}
+		
 		
 		for (final String sourceFolder : componentSourceFolders) {
 			final File folder = new File(sourceFolder);
