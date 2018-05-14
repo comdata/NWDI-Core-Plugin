@@ -127,9 +127,14 @@ public class AntHelper {
 		
 		
 		for (final String sourceFolder : componentSourceFolders) {
+			System.out.println("checking: "+sourceFolder);
 			final File folder = new File(sourceFolder);
 
-			if (folder.exists() && filter.accept(folder.getAbsolutePath())) {
+			
+			boolean exists = folder.exists();
+			boolean accept = filter.accept(folder.getAbsolutePath());
+			System.out.println("checking: "+sourceFolder+" exist: "+exists+" accept: "+accept);
+			if (exists && accept) {
 				sourceFolders.add(folder);
 				System.out.println("Adding folder: "+sourceFolder);
 			} else {
@@ -316,7 +321,7 @@ public class AntHelper {
 
 			File srcFolder = new File(resourceFolder);
 
-			if (srcFolder != null && srcFolder.exists()) {
+			if (srcFolder.exists()) {
 				sources.add(srcFolder.getAbsolutePath());
 			}
 		}
