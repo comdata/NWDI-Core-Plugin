@@ -59,7 +59,7 @@ class DcDefinitionRulesModuleProducer implements RulesModuleProducer {
                 forPattern(prefix + "/dc-ref/name").callParam().ofIndex(1);
                 forPattern(prefix + "/pp-ref").callMethod("setName").withParamCount(1).withParamTypes(String.class).then().callParam();
                 forPattern(prefix + "/at-build-time").callMethod("setAtBuildTime");
-                forPattern(prefix + "/at-run-time").callMethod("setAtBuildTime");
+                forPattern(prefix + "/at-run-time").callMethod("setAtRunTime");
             }
         };
     }

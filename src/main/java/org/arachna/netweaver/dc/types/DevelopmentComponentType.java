@@ -154,7 +154,7 @@ public enum DevelopmentComponentType {
      *            indicate whether DCs of this type co.ntains java sources
      */
     DevelopmentComponentType(final String type, final boolean canContainJavaSources) {
-        this.type = type;
+        this.setType(type);
         this.canContainJavaSources = canContainJavaSources;
     }
 
@@ -170,15 +170,15 @@ public enum DevelopmentComponentType {
      */
     DevelopmentComponentType(final String type, final String subType, final boolean canContainJavaSources) {
         this(type, canContainJavaSources);
-        this.subType = subType;
+        this.setSubType(subType);
     }
 
     @Override
     public String toString() {
-        final StringBuilder result = new StringBuilder(type);
+        final StringBuilder result = new StringBuilder(getType());
 
-        if (StringUtils.isNotEmpty(subType)) {
-            result.append(':').append(subType);
+        if (StringUtils.isNotEmpty(getSubType())) {
+            result.append(':').append(getSubType());
         }
 
         return result.toString();
@@ -213,4 +213,20 @@ public enum DevelopmentComponentType {
 
         return type;
     }
+
+	public String getSubType() {
+		return subType;
+	}
+
+	public void setSubType(String subType) {
+		this.subType = subType;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

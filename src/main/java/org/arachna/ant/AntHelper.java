@@ -24,6 +24,8 @@ import org.arachna.netweaver.dc.types.PublicPartType;
  * @author Dirk Weigenand
  */
 public class AntHelper {
+	private static final String EJB_MODULE = "EJBModule";
+
 	/**
 	 * template for computing the absolute base path of a development component.
 	 */
@@ -78,6 +80,9 @@ public class AntHelper {
 		}
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EE)) {
+			if (EJB_MODULE.equals(component.getType().getSubType()) && !componentSourceFolders.contains("ejbModule")) {
+				componentSourceFolders.add("ejbModule");
+			}
 			if (!componentSourceFolders.contains("source")) {
 				componentSourceFolders.add("source");
 			}

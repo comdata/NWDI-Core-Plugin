@@ -5,6 +5,9 @@ package org.arachna.ant;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Collection;
 
 import org.arachna.netweaver.dc.types.DevelopmentComponent;
 import org.arachna.netweaver.dc.types.DevelopmentComponentFactory;
@@ -45,6 +48,8 @@ public class AntHelperTest {
      */
     private DevelopmentComponent dc1;
 
+	private DevelopmentComponent dcEjb;
+
     /**
      * Set up fixture.
      */
@@ -53,6 +58,10 @@ public class AntHelperTest {
         final DevelopmentComponentFactory dcFactory = new DevelopmentComponentFactory();
         dc1 = dcFactory.create(EXAMPLE_COM, "dc1");
         dc1.add(new PublicPart(DEFAULT_PP, "", "", PublicPartType.COMPILE));
+        
+        dcEjb = dcFactory.create(EXAMPLE_COM, "dcEjb");
+        dcEjb.setType("J2EE", "EJBModule");
+        
         antHelper = new AntHelper("/workspace", dcFactory);
     }
 
@@ -65,6 +74,16 @@ public class AntHelperTest {
         dc1 = null;
     }
 
+    /**
+     * Test method for
+     * {@link org.arachna.ant.AntHelper#getBaseLocation(org.arachna.netweaver.dc.types.DevelopmentComponent, java.lang.String)} .
+     */
+    @Test
+    public final void testSourceFileSets() {
+    	Collection<String> createSourceFileSets = antHelper.createSourceFileSets(dc1);
+        assertTrue(!createSourceFileSets.isEmpty());
+    }
+    
     /**
      * Test method for
      * {@link org.arachna.ant.AntHelper#getBaseLocation(org.arachna.netweaver.dc.types.DevelopmentComponent, java.lang.String)} .
