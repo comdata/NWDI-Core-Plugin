@@ -9,7 +9,7 @@
 	<groupId>org.arachna.netweaver</groupId>
 	<artifactId>NWDI-Core-Plugin</artifactId>
 	<name>NWDI-Core-Plugin</name>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.6-SNAPSHOT</version>
 	<packaging>hpi</packaging>
 	<description>
 Jenkins plugin for interfacing with a NetWeaver Development Infrastructure.
