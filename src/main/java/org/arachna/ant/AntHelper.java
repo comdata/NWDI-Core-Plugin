@@ -73,50 +73,52 @@ public class AntHelper {
 		Collection<File> sourceFolders = new ArrayList<File>();
 		Set<String> componentSourceFolders = component.getSourceFolders();
 
+		String basePath="";
 		for (String folder : componentSourceFolders) {
 			System.out.println("check folder: "+folder);
+			basePath=new File(folder).getParentFile().getAbsolutePath();
 		}
 		
 		System.out.println("component: "+component.getName()+" type: "+component.getType());
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
-			System.out.println("ejbModule");
-			componentSourceFolders.add("ejbModule");
+			System.out.println(basePath+File.pathSeparator+"ejbModule");
+			componentSourceFolders.add(basePath+File.pathSeparator+"ejbModule");
 			component.setSourceFolders(componentSourceFolders);		
 		}
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EE)) {
-			if (!componentSourceFolders.contains("source")) {
-				System.out.println("source");
-				componentSourceFolders.add("source");
+			if (!componentSourceFolders.contains(basePath+File.pathSeparator+"source")) {
+				System.out.println(basePath+File.pathSeparator+"source");
+				componentSourceFolders.add(basePath+File.pathSeparator+"source");
 			}
-			if (!componentSourceFolders.contains("src")) {
-				System.out.println("src");
-				componentSourceFolders.add("src");
+			if (!componentSourceFolders.contains(basePath+File.pathSeparator+"src")) {
+				System.out.println(basePath+File.pathSeparator+"src");
+				componentSourceFolders.add(basePath+File.pathSeparator+"src");
 			}
 			component.setSourceFolders(componentSourceFolders);		
 		}
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EEWebModule)) {
-			if (!componentSourceFolders.contains("source")) {
-				System.out.println("source");
-				componentSourceFolders.add("source");
+			if (!componentSourceFolders.contains(basePath+File.pathSeparator+"source")) {
+				System.out.println(basePath+File.pathSeparator+"source");
+				componentSourceFolders.add(basePath+File.pathSeparator+"source");
 			}
-			if (!componentSourceFolders.contains("src")) {
-				System.out.println("src");
-				componentSourceFolders.add("src");
+			if (!componentSourceFolders.contains(basePath+File.pathSeparator+"src")) {
+				System.out.println(basePath+File.pathSeparator+"src");
+				componentSourceFolders.add(basePath+File.pathSeparator+"src");
 			}
 			component.setSourceFolders(componentSourceFolders);		
 		}
 
 		if (component.getType().equals(DevelopmentComponentType.Java)) {
-			if (!componentSourceFolders.contains("source")) {
-				System.out.println("source");
-				componentSourceFolders.add("source");
+			if (!componentSourceFolders.contains(basePath+File.pathSeparator+"source")) {
+				System.out.println(basePath+File.pathSeparator+"source");
+				componentSourceFolders.add(basePath+File.pathSeparator+"source");
 			}
-			if (!componentSourceFolders.contains("src")) {
-				System.out.println("src");
-				componentSourceFolders.add("src");
+			if (!componentSourceFolders.contains(basePath+File.pathSeparator+"src")) {
+				System.out.println(basePath+File.pathSeparator+"src");
+				componentSourceFolders.add(basePath+File.pathSeparator+"src");
 			}
 			component.setSourceFolders(componentSourceFolders);		
 		}
