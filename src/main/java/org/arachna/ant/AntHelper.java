@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.io.FilenameUtils;
 import org.arachna.netweaver.dc.types.DevelopmentComponent;
 import org.arachna.netweaver.dc.types.DevelopmentComponentFactory;
 import org.arachna.netweaver.dc.types.DevelopmentComponentType;
@@ -76,10 +77,13 @@ public class AntHelper {
 		String basePath="";
 		for (String folder : componentSourceFolders) {
 			System.out.println("check folder: "+folder);
-			basePath=new File(folder).getParentFile().getAbsolutePath();
+			
+			
+			basePath=FilenameUtils.getFullPath(folder);
+			break;
 		}
 		
-		System.out.println("component: "+component.getName()+" type: "+component.getType());
+		System.out.println("component: "+component.getName()+" type: "+component.getType()+" basePath: "+basePath);
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
 			System.out.println(basePath+File.separator+"ejbModule");
