@@ -77,7 +77,7 @@ public class AntHelper {
 
 		for (String folder : componentSourceFolders) {
 			System.out.println("check folder: "+folder);
-	
+		}
 			if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
 				System.out.println("ejbModule");
 				componentSourceFolders.add("ejbModule");
@@ -110,7 +110,7 @@ public class AntHelper {
 				}
 			}
 
-		}
+		
 		component.setSourceFolders(componentSourceFolders);		
 		
 		for (final String sourceFolder : componentSourceFolders) {
