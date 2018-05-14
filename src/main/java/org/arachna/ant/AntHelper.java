@@ -292,7 +292,7 @@ public class AntHelper {
 		final Collection<String> sources = new HashSet<String>();
 		System.out.println("source folders for: "+component.getName());
 		for (final File srcFolder : getExistingSourceFolders(component, filter)) {
-			System.out.println("adding source folder:"+srcFolder.getName());
+			System.out.println("adding source folder:"+srcFolder.getName() + " absolute: "+srcFolder.getAbsolutePath());
 			sources.add(srcFolder.getAbsolutePath());
 		}
 
