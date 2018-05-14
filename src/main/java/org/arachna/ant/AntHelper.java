@@ -74,13 +74,11 @@ public class AntHelper {
 		Collection<File> sourceFolders = new ArrayList<File>();
 		Set<String> componentSourceFolders = component.getSourceFolders();
 
-		String basePath="";
+		String basePath=getBaseLocation(component);;
 		for (String folder : componentSourceFolders) {
-			System.out.println("check folder: "+folder);
-			
-			
-			basePath=FilenameUtils.getFullPath(folder);
-			break;
+			if (folder!=null) {
+				System.out.println("check folder: "+folder);
+			}
 		}
 		
 		System.out.println("component: "+component.getName()+" type: "+component.getType()+" basePath: "+basePath);
