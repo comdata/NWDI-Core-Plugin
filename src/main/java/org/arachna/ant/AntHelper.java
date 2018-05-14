@@ -78,6 +78,11 @@ public class AntHelper {
 		for (String folder : componentSourceFolders) {
 			System.out.println("check folder: "+folder);
 	
+			if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
+				System.out.println("ejbModule");
+				componentSourceFolders.add("ejbModule");
+			}
+			
 			if (component.getType().equals(DevelopmentComponentType.J2EE)) {
 				if (EJB_MODULE.equals(component.getType().getSubType()) && !componentSourceFolders.contains("ejbModule")) {
 					System.out.println("ejbModule");
