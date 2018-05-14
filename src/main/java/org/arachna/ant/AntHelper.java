@@ -24,8 +24,6 @@ import org.arachna.netweaver.dc.types.PublicPartType;
  * @author Dirk Weigenand
  */
 public class AntHelper {
-	private static final String EJB_MODULE = "EJBModule";
-
 	/**
 	 * template for computing the absolute base path of a development component.
 	 */
@@ -154,7 +152,7 @@ public class AntHelper {
 			if (referencedDC != null) {
 				final File baseDir = new File(this.getBaseLocation(referencedDC, ppRef.getName()));
 
-				if (baseDir.exists()) {
+				if (baseDir.exists() && baseDir.list().length>0) {
 					paths.add(baseDir.getAbsolutePath());
 				}
 			}
@@ -177,9 +175,12 @@ public class AntHelper {
 	public String getBaseLocation(final DevelopmentComponent component, final String name) {
 		String ppName = name;
 
+		System.out.println("looking up public part: "+ppName);
 		if (Util.fixEmpty(ppName) == null) {
 			for (final PublicPart pp : component.getPublicParts()) {
+				System.out.println("public part to check. "+pp.getPublicPart()+ " type: "+pp.getType().toString());
 				if (PublicPartType.COMPILE.equals(pp.getType())) {
+					System.out.println("public part found");
 					ppName = pp.getPublicPart();
 					break;
 				}
