@@ -7,7 +7,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.arachna.netweaver.dc.types.DevelopmentComponent;
 import org.arachna.netweaver.dc.types.DevelopmentComponentFactory;
@@ -58,6 +61,10 @@ public class AntHelperTest {
         final DevelopmentComponentFactory dcFactory = new DevelopmentComponentFactory();
         dc1 = dcFactory.create(EXAMPLE_COM, "dc1");
         dc1.add(new PublicPart(DEFAULT_PP, "", "", PublicPartType.COMPILE));
+        Set<String> sourcefolders=new HashSet<String>();
+        sourcefolders.add("/workspace/.dtc/DCs/example.com/dc1/_comp/src");
+        new File("/workspace/.dtc/DCs/example.com/dc1/_comp/src").mkdirs();
+		dc1.setSourceFolders(sourcefolders);
         
         dcEjb = dcFactory.create(EXAMPLE_COM, "dcEjb");
         dcEjb.setType("J2EE", "EJBModule");
