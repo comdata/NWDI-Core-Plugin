@@ -71,7 +71,7 @@ public class AntHelper {
 	 */
 	private Collection<File> getExistingSourceFolders(final DevelopmentComponent component,
 			final SourceDirectoryFilter filter) {
-		Collection<File> sourceFolders = new ArrayList<File>();
+		Collection<File> sourceFolders = new ArrayList<>();
 		Set<String> componentSourceFolders = component.getSourceFolders();
 
 		String basePath=getBaseLocation(component);;
@@ -84,18 +84,18 @@ public class AntHelper {
 		System.out.println("component: "+component.getName()+" type: "+component.getType()+" basePath: "+basePath);
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EEEjbModule)) {
-			System.out.println(basePath+File.separator+"ejbModule");
-			componentSourceFolders.add(basePath+File.separator+"ejbModule");
+			System.out.println("adding: "+basePath+File.separator+"ejbModule");
+			componentSourceFolders.add("adding: "+basePath+File.separator+"ejbModule");
 			component.setSourceFolders(componentSourceFolders);		
 		}
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EE)) {
 			if (!componentSourceFolders.contains(basePath+File.separator+"source")) {
-				System.out.println(basePath+File.separator+"source");
+				System.out.println("adding: "+basePath+File.separator+"source");
 				componentSourceFolders.add(basePath+File.separator+"source");
 			}
 			if (!componentSourceFolders.contains(basePath+File.separator+"src")) {
-				System.out.println(basePath+File.separator+"src");
+				System.out.println("adding: "+basePath+File.separator+"src");
 				componentSourceFolders.add(basePath+File.separator+"src");
 			}
 			component.setSourceFolders(componentSourceFolders);		
@@ -103,11 +103,11 @@ public class AntHelper {
 		
 		if (component.getType().equals(DevelopmentComponentType.J2EEWebModule)) {
 			if (!componentSourceFolders.contains(basePath+File.separator+"source")) {
-				System.out.println(basePath+File.separator+"source");
+				System.out.println("adding: "+basePath+File.separator+"source");
 				componentSourceFolders.add(basePath+File.separator+"source");
 			}
 			if (!componentSourceFolders.contains(basePath+File.separator+"src")) {
-				System.out.println(basePath+File.separator+"src");
+				System.out.println("adding: "+basePath+File.separator+"src");
 				componentSourceFolders.add(basePath+File.separator+"src");
 			}
 			component.setSourceFolders(componentSourceFolders);		
@@ -115,18 +115,17 @@ public class AntHelper {
 
 		if (component.getType().equals(DevelopmentComponentType.Java)) {
 			if (!componentSourceFolders.contains(basePath+File.separator+"source")) {
-				System.out.println(basePath+File.separator+"source");
+				System.out.println("adding: "+basePath+File.separator+"source");
 				componentSourceFolders.add(basePath+File.separator+"source");
 			}
 			if (!componentSourceFolders.contains(basePath+File.separator+"src")) {
-				System.out.println(basePath+File.separator+"src");
+				System.out.println("adding: "+basePath+File.separator+"src");
 				componentSourceFolders.add(basePath+File.separator+"src");
 			}
 			component.setSourceFolders(componentSourceFolders);		
 		}
 		
-		
-		for (final String sourceFolder : componentSourceFolders) {
+		for (final String sourceFolder : component.getSourceFolders()) {
 			System.out.println("checking: "+sourceFolder);
 			final File folder = new File(sourceFolder);
 
