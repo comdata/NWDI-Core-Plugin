@@ -71,10 +71,10 @@ public class AntHelper {
 	 */
 	private Collection<File> getExistingSourceFolders(final DevelopmentComponent component,
 			final SourceDirectoryFilter filter) {
-		Collection<File> sourceFolders = new ArrayList<>();
+		Collection<File> sourceFolders = new ArrayList<File>();
 		Set<String> componentSourceFolders = component.getSourceFolders();
 
-		String basePath=getBaseLocation(component);;
+		String basePath=getBaseLocation(component);
 		for (String folder : componentSourceFolders) {
 			if (folder!=null) {
 				System.out.println("check folder: "+folder);
