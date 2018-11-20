@@ -17,9 +17,9 @@ The plugin is not available through the Jenkins update center yet. To build the 
 See https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-SettingUpEnvironment for inital Jenkins plugin configuration. Esp. settings.xml settings.
 
 ```
-git clone git://github.com/weigo/NWDI-config-plugin.git
-git clone git://github.com/weigo/NWDI-pom-Plugin.git
-git clone git://github.com/weigo/NWDI-Core-Plugin.git
+git clone https://github.com/weigo/NWDI-config-plugin.git
+git clone https://github.com/weigo/NWDI-pom-Plugin.git
+git clone https://github.com/weigo/NWDI-Core-Plugin.git
 ```
 and build the Maven projects:
 ```
