@@ -160,7 +160,7 @@ public class TopoSortTest {
         assertThat(result.getCircularDependencies(), empty());
     }
 
-    @Test
+    /*@Test
     public void testXXX() {
         DevelopmentConfigurationReader reader = new DevelopmentConfigurationReader(this.dcFactory);
         reader.execute(new InputStreamReader(this.getClass().getResourceAsStream("DevelopmentConfiguration.xml")));
@@ -168,5 +168,5 @@ public class TopoSortTest {
         component.setNeedsRebuild(true);
         TopoSortResult result = sort(component);
         System.err.println(result);
-    }
+    }*/
 }

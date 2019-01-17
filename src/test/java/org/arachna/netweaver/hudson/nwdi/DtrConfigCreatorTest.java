@@ -182,9 +182,6 @@ public final class DtrConfigCreatorTest {
         catch (final XpathException e) {
             fail(String.format("%s: '%s'", e.getMessage(), xPath));
         }
-        catch (final InterruptedException e) {
-        	throw new IllegalStateException(e);
-        }
     }
 
     private void assertContent(final FilePath path, final String xPath, final String value) {
@@ -200,9 +197,6 @@ public final class DtrConfigCreatorTest {
         }
         catch (final XpathException e) {
             fail(String.format("%s: '%s'", e.getMessage(), xPath));
-        }
-        catch (final InterruptedException e) {
-        	throw new IllegalStateException(e);
         }
     }
 
